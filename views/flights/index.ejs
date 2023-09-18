@@ -12,7 +12,6 @@
         <th>Flight Number</th>
         <th>Departure Date</th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,16 +20,8 @@
         <td><%= flight.airline %></td> <!-- Airline of the flight -->
         <td><%= flight.airport %></td> <!-- Airport code of the flight -->
         <td><%= flight.flightNo %></td> <!-- Flight number -->
-        <td><%= flight.departure %></td> <!-- Departure date and time of the flight -->
+        <td><%= flight.departure.toLocaleDateString() %></td> <!-- Departure date and time of the flight -->
         <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
-        <!-- <td>
-          <form 
-            action="/flights/<%= flight._id %>?_method=DELETE"
-            method="POST"
-          >
-            <button type="submit">X</button>
-          </form>
-        </td> -->
       </tr>
       <% }) %>
     </tbody>

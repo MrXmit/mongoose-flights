@@ -22,7 +22,7 @@
   </tr>
   <tr>
     <th>Departure Date:</th>
-    <td><%= flight.departure %></td> 
+    <td><%= flight.departure.toLocaleDateString() %></td> 
 </table>
 
 <a href="/flights">Back to Flight List</a>
@@ -34,12 +34,44 @@
   action="/flights/<%= flight._id %>/tickets"
   method="POST"
 >
-<label for="price">Price:</label>
-<input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
-<label for="seat">Seat:</label>
-<input type="text" id="seat" name="seat" placeholder="Enter seat number" pattern="[A-F][1-9]\d?" required>
-<button type="submit">Add Ticket</button>
+  <label for="price">Price:</label>
+  <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
+  <label for="seat">Seat:</label>
+  <input type="text" id="seat" name="seat" placeholder="Enter seat number" pattern="[A-F][1-9]\d?" required>
+  <button type="submit">Add Ticket</button>
 </form>
+
+<% if (flight.tickets.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Price</th>
+        <th>Seat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %> 
+      <% flight.tickets.forEach(function(ticket) { %>
+        <% total ++ %>
+        <tr>
+          <td><%= ticket.price %></td>
+          <td><%= ticket.seat %></td>
+        </tr>
+      <% }) %>
+      <tr>
+        <td colspan="2"></td>
+        <td>
+          <strong>Total <%= total %></strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% } else { %>
+  <h3>No Tickets Yet</h3>
+<% } %>
+
+
+
 </main>
   
 <%- include('../partials/footer') %>

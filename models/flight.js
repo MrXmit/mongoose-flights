@@ -17,28 +17,28 @@ const ticketSchema = new Schema({
 
 const flightSchema = new Schema({
   airline: {
-    type: String, 
+    type: String,
     enum: ['American', 'Southwest', 'United'],
     required: true
   },
   airport: {
-  type: String, 
-  required: true,
-  enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
-  default: 'DEN'
+    type: String,
+    required: true,
+    enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
+    default: 'DEN'
   },
   flightNo: {
     type: Number,
     min: 10, max: 9999
-   },
-   departure: {
+  },
+  departure: {
     type: Date,
     required: true,
-   },
-   tickets: [ticketSchema]
-  },{
-    timestamps: true
-  })
+  },
+  tickets: [ticketSchema]
+}, {
+  timestamps: true
+})
 
 const Flight = mongoose.model('Flight', flightSchema)
 

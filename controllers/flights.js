@@ -97,8 +97,9 @@ function update(req, res) {
 }
 
 function createTicket(req, res) {
-  Flight.findById(req.params.Id)
+  Flight.findById(req.params.flightId)
   .then(flight => {
+
     flight.tickets.push(req.body)
     flight.save()
     .then(() => {
