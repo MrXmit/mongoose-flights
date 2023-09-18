@@ -2,9 +2,16 @@ import { Router } from 'express'
 
 const router = Router()
 
-// GET localhost:3000/users
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+import * as flightsCtrl from '../controllers/flights.js'
+
+
+router.get('/', flightsCtrl.index)
+router.get('/new', flightsCtrl.new)
+// router.get('/:movieId', flightsCtrl.show)
+// router.get('/:movieId/edit', flightsCtrl.edit)
+router.post('/', flightsCtrl.create)
+// router.delete('/:movieId', flightsCtrl.delete)
+// router.put('/:movieId', flightsCtrl.update)
+
 
 export { router }
