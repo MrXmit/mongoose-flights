@@ -32,6 +32,26 @@
 					<td>
 						<%= flight.departure.toLocaleDateString() %>
 					</td>
+				</tr>
+				<tr>
+					<th>Departure Date:</th>
+					<td>
+						<%= flight.departure.toLocaleDateString() %>
+					</td>
+				</tr>
+
+				<tr>
+					<th>Meals:</th>
+					<td>
+						<ul>
+							<% flight.meals.forEach(meal=> { %>
+								<li>
+									<%= meal.name %>
+								</li>
+								<% }) %>
+						</ul>
+					</td>
+				</tr>
 			</table>
 
 			<a href="/flights">Back to Flight List</a>
@@ -42,7 +62,8 @@
 				<label for="price">Price:</label>
 				<input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
 				<label for="seat">Seat:</label>
-				<input type="text" id="seat" name="seat" placeholder="Enter seat number" pattern="[A-F][1-9]\d?" required>
+				<input type="text" id="seat" name="seat" placeholder="Enter seat number" pattern="[A-F][1-9]\d?"
+					required>
 				<button type="submit">Add Ticket</button>
 			</form>
 
@@ -70,7 +91,7 @@
 										<tr>
 											<td colspan="2"></td>
 											<td>
-												<strong>Total <%= total %></strong>
+												<strong>Total Tickets: <%= total %></strong>
 											</td>
 										</tr>
 					</tbody>
@@ -79,7 +100,18 @@
 					<h3>No Tickets Yet</h3>
 					<% } %>
 
-
+						<h2>Meals</h2>
+						<%# add to meal form below this comment %>
+							<form id="add-meal-to-flight" method="POST" action="/flights/<%= flight._id %>/meals">
+								<select name="mealId">
+									<% meals.forEach(meal=> { %>
+										<option value="<%= meal._id %>">
+											<%= meal.name %>
+										</option>
+										<% }) %>
+								</select>
+								<button type="submit">Add Meal to Flight</button>
+							</form>
 
 		</main>
 
