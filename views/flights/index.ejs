@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/movies/index.css" />
+<link rel="stylesheet" href="/stylesheets/flights/index.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -23,14 +23,14 @@
         <td><%= flight.flightNo %></td> <!-- Flight number -->
         <td><%= flight.departure %></td> <!-- Departure date and time of the flight -->
         <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
-        <td>
+        <!-- <td>
           <form 
             action="/flights/<%= flight._id %>?_method=DELETE"
             method="POST"
           >
             <button type="submit">X</button>
           </form>
-        </td>
+        </td> -->
       </tr>
       <% }) %>
     </tbody>

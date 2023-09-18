@@ -7,11 +7,12 @@ import * as flightsCtrl from '../controllers/flights.js'
 
 router.get('/', flightsCtrl.index)
 router.get('/new', flightsCtrl.new)
-// router.get('/:movieId', flightsCtrl.show)
-// router.get('/:movieId/edit', flightsCtrl.edit)
 router.post('/', flightsCtrl.create)
-// router.delete('/:movieId', flightsCtrl.delete)
-// router.put('/:movieId', flightsCtrl.update)
+router.get('/:flightId', flightsCtrl.show)
+router.get('/:flightId/edit', flightsCtrl.edit)
+router.put('/:flightId', flightsCtrl.update)
+// router.delete('/:flightId', flightsCtrl.delete)
+
 
 
 export { router }
