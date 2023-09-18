@@ -27,6 +27,19 @@
 
 <a href="/flights">Back to Flight List</a>
 <a href="/flights/<%= flight._id %>/edit">Edit Flight</a>
+
+<h2>Tickets</h2>
+<form 
+  id="add-ticket-form"
+  action="/flights/<%= flight._id %>/tickets"
+  method="POST"
+>
+<label for="price">Price:</label>
+<input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
+<label for="seat">Seat:</label>
+<input type="text" id="seat" name="seat" placeholder="Enter seat number" pattern="[A-F][1-9]\d?" required>
+<button type="submit">Add Ticket</button>
+</form>
 </main>
   
 <%- include('../partials/footer') %>
