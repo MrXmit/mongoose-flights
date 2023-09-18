@@ -1,53 +1,53 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/flights/edit.css">
-  <%- include('../partials/nav') %>
+	<link rel="stylesheet" href="/stylesheets/flights/edit.css">
+	<%- include('../partials/nav') %>
 
-    <main>
-      <h1>
-        <%= title %>
-      </h1>
-      <form id="new-form" action="/flights/<%= flight._id %>?_method=PUT" method="POST">
-        <!-- Airline Selection -->
-        <label for="airline">Airline:</label>
-        <select id="airline" name="airline" required>
-          <option value="<%= flight.airline %>">
-            <%= flight.airline %>
-          </option>
-          <option value="American">American</option>
-          <option value="Southwest">Southwest</option>
-          <option value="United">United</option>
-        </select>
-        <br><br>
+		<main>s
+			<h1>
+				<%= title %>
+			</h1>
+			<form id="new-form" action="/flights/<%= flight._id %>?_method=PUT" method="POST">
+				<!-- Airline Selection -->
+				<label for="airline">Airline:</label>
+				<select id="airline" name="airline" required>
+					<option value="<%= flight.airline %>">
+						<%= flight.airline %>
+					</option>
+					<option value="American">American</option>
+					<option value="Southwest">Southwest</option>
+					<option value="United">United</option>
+				</select>
+				<br><br>
 
-        <!-- Airport Selection -->
-        <label for="airport">Airport:</label>
-        <select id="airport" name="airport" required>
-          <option value="<%= flight.airport %>">
-            <%= flight.airport %>
-          </option>
-          <option value="AUS">AUS</option>
-          <option value="DFW">DFW</option>
-          <option value="DEN">DEN (Default)</option>
-          <option value="LAX">LAX</option>
-          <option value="SAN">SAN</option>
-        </select>
-        <br><br>
+				<!-- Airport Selection -->
+				<label for="airport">Airport:</label>
+				<select id="airport" name="airport" required>
+					<option value="<%= flight.airport %>">
+						<%= flight.airport %>
+					</option>
+					<option value="AUS">AUS</option>
+					<option value="DFW">DFW</option>
+					<option value="DEN">DEN (Default)</option>
+					<option value="LAX">LAX</option>
+					<option value="SAN">SAN</option>
+				</select>
+				<br><br>
 
-        <!-- Flight Number Input -->
-        <label for="flightNo">Flight Number:</label>
-        <input type="number" id="flightNo" name="flightNo" min="10" max="9999" value="<%= flight.flightNo %>">
-        <br><br>
+				<!-- Flight Number Input -->
+				<label for="flightNo">Flight Number:</label>
+				<input type="number" id="flightNo" name="flightNo" min="10" max="9999" value="<%= flight.flightNo %>">
+				<br><br>
 
-        <!-- Departure Date & Time Input -->
-        <label for="departure">Departure Date & Time:</label>
-        <input type="datetime-local" id="departure" name="departure" value="<%= flight.departure %>" required>
-        <br><br>
+				<!-- Departure Date & Time Input -->
+				<label for="departure">Departure Date & Time:</label>
+				<input type="datetime-local" id="departure" name="departure" value="<%= flight.departure %>" required>
+				<br><br>
 
-        <input type="submit" value="Submit">
-      </form>
+				<input type="submit" value="Submit">
+			</form>
 
-      <!-- Link back to the flight's show view -->
-      <a href="/flights/<%= flight.id %>">Back to Flight Details</a>
-    </main>
+			<!-- Link back to the flight's show view -->
+			<a href="/flights/<%= flight.id %>">Back to Flight Details</a>
+		</main>
 
-    <%- include('../partials/footer') %>
+		<%- include('../partials/footer') %>

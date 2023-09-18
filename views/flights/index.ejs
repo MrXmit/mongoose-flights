@@ -1,32 +1,40 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/flights/index.css" />
-<%- include('../partials/nav') %>
+	<link rel="stylesheet" href="/stylesheets/flights/index.css" />
+	<%- include('../partials/nav') %>
 
-<main>
-  <h1>Flight List</h1>
-  <table id="list">
-    <thead>
-      <tr>
-        <th>Airline</th>
-        <th>Airport</th>
-        <th>Flight Number</th>
-        <th>Departure Date</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% flights.forEach((flight) => { %> 
-      <tr>
-        <td><%= flight.airline %></td> <!-- Airline of the flight -->
-        <td><%= flight.airport %></td> <!-- Airport code of the flight -->
-        <td><%= flight.flightNo %></td> <!-- Flight number -->
-        <td><%= flight.departure.toLocaleDateString() %></td> <!-- Departure date and time of the flight -->
-        <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-  
-</main>
+		<main>
+			<h1>Flight List</h1>
+			<table id="list">
+				<thead>
+					<tr>
+						<th>Airline</th>
+						<th>Airport</th>
+						<th>Flight Number</th>
+						<th>Departure Date</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% flights.forEach((flight)=> { %>
+						<tr>
+							<td>
+								<%= flight.airline %>
+							</td> <!-- Airline of the flight -->
+							<td>
+								<%= flight.airport %>
+							</td> <!-- Airport code of the flight -->
+							<td>
+								<%= flight.flightNo %>
+							</td> <!-- Flight number -->
+							<td>
+								<%= flight.departure.toLocaleDateString() %>
+							</td> <!-- Departure date and time of the flight -->
+							<td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
+						</tr>
+						<% }) %>
+				</tbody>
+			</table>
 
-<%- include('../partials/footer') %>
+		</main>
+
+		<%- include('../partials/footer') %>
